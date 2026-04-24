@@ -28,7 +28,6 @@ Semantic job search — pgvector embeddings so you can search "jobs like Stripe 
 Salary anomaly detection — flag outlier postings (unusually high/low for the role)
 Weekly insight digest — auto-generated report: "This week, demand for Rust engineers grew 12% in fintech"
 
-
 Tech Stack
 LayerTechScraping/IngestionPython, apify or scrapy, Redis StreamsTask QueueCelery + RedisDatabasePostgres + pgvectorBackendFastAPIAIOpenAI API + embeddingsFrontendReact + Recharts + WebSocketsDeployRailway or Render (backend), Vercel (frontend)SchedulerAPScheduler or cron via Celery Beat
 
@@ -61,25 +60,6 @@ Add a "How it works" architecture diagram
 Seed it with real data so the demo looks alive
 
 
-What This Proves to Recruiters
-
-You can design and build a multi-component system from scratch
-You understand async processing, queues, and real-time data
-Your AI usage is purposeful, not just slapping GPT on everything
-You can deploy and maintain something real
-
-This is a fundamentally different class of project than anything on your GitHub right now. Want me to help you scaffold the project structure or start with any specific component?You said: ok lets start with a good name for the project, github repo and week 1 stuff.ok lets start with a good name for the project, github repo and week 1 stuff. I wanna learn too alongwith so keep teaching me wht code we are doing and why.2:23 PMClaude responded: Love that mindset.Love that mindset. Let's do this properly.
-
-Name & Branding
-TalentPulse — tracks the pulse of the job market in real-time. Clean, professional, memorable. Works as a repo name, a demo URL, everything.
-
-github.com/Vansh-837/TalentPulse
-
-
-Week 1 Goal
-By end of week 1 you should have real job data flowing automatically from sources → Redis → Postgres. No frontend yet, no AI yet. Just clean, reliable data infrastructure.
-
-First — understand the architecture we're building this week
 Job APIs
    ↓
 Scraper (Python) — fetches jobs every X minutes
@@ -89,12 +69,10 @@ Redis Streams — a queue that holds raw jobs temporarily
 Celery Worker — picks jobs off the queue, cleans them, saves to DB
    ↓
 Postgres — permanent storage
-Why this pattern and not just "fetch → save directly"?
-Because direct fetch→save breaks under load and is fragile. Redis Streams acts as a buffer — if your DB goes down, jobs pile up in Redis and nothing is lost. Celery workers can scale horizontally. This is how real production systems are built, and it's what makes this project impressive.
 
-Step 1 — Project Setup
-Create this folder structure:
-TalentPulse/
+
+
+Skillture/
 ├── backend/
 │   ├── ingestion/
 │   │   ├── __init__.py
