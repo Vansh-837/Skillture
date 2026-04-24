@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg2-binary
+celery[redis]
+redis
+requests
+python-dotenv
+apscheduler
