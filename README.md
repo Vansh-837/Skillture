@@ -71,21 +71,3 @@ Celery Worker — picks jobs off the queue, cleans them, saves to DB
 Postgres — permanent storage
 
 
-
-Skillture/
-├── backend/
-│   ├── ingestion/
-│   │   ├── __init__.py
-│   │   └── scraper.py        # fetches jobs from APIs
-│   ├── workers/
-│   │   ├── __init__.py
-│   │   └── processor.py      # celery worker
-│   ├── db/
-│   │   ├── __init__.py
-│   │   └── models.py         # postgres table definitions
-│   ├── config.py
-│   └── main.py
-├── docker-compose.yml         # runs Redis + Postgres locally
-├── requirements.txt
-└── .env
-
